@@ -8,10 +8,10 @@ var app = express();
 
 
 mongoose.connect(`mongodb://davidz:davidz@ds157624.mlab.com:57624/evercheck-test-dz`, function(err, res){
- if(err) {
- 	return console.log(`Error by Connected to DB: ${err}`)
- }
- console.log('Connected to Database');
+	if(err) {
+		return console.log(`Error by Connected to DB: ${err}`)
+	}
+	console.log('Connected to Database');
 });
 
 
@@ -28,7 +28,7 @@ var router = express.Router();
 
 // Index - Route
 router.get('/', function(req, res) { 
- res.send("Hello Daviiiid");
+	res.send("API Restful Node.js + MongoDB + Express.js");
 });
 
 app.use(router);
@@ -37,22 +37,22 @@ app.use(router);
 var api = express.Router();
 
 api.route('/providers') 
- .get(ProviderCtrl.findAll)
- .post(ProviderCtrl.add);
+.get(ProviderCtrl.findAll)
+.post(ProviderCtrl.add);
 
 
 api.route('/providers/:id')
- .get(ProviderCtrl.findById)
- //.put(ProviderCtrl.update)
- .delete(ProviderCtrl.delete);
+.get(ProviderCtrl.findById)
+.put(ProviderCtrl.update)
+.delete(ProviderCtrl.delete);
 
 
 
 
-app.use('/api', api);
+ app.use('/api', api);
 
-console.log("Hola");
+
 // Start server
 app.listen(3000, function() {
- console.log("Node server running on David http://localhost:3000");
+	console.log("Node server running on David http://localhost:3000");
 });

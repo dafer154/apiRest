@@ -3,14 +3,14 @@ var Schema = mongoose.Schema;
 
 var providerSchema = new Schema({ 
 
- 
-	_id : { _id: false },
+
+	_id : { type: String },
 	firstName : { type: String },
 	lastName : { type: String },
 	middleName : { type: String },
 	email : { type: String },
 	specialty : {
-		_id : {type: Schema.ObjectId},
+		_id : { type: String },
 		name : { type: String },
 		createdBy : { type: Number },
 		createdAt : {type: Date, default: Date.now()},
