@@ -61,29 +61,17 @@ exports.add = function(req, res) {
 
 
 
-
-//Esperar en este
-
-
-
 //PUT - Update a register already exists
 exports.update = function(req, res) {
- 
+
  Provider.findById(req.params.id, function(err, provider) {
- 
+
  provider._id = req.body._id;
  provider.firstName = req.body.firstName;
  provider.lastName = req.body.lastName;
  provider.middleName = req.body.middleName;
  provider.email = req.body.email;
- //provider.specialty = {
-	//	provider.specialty._id = req.body.provider.specialty._id;
-	//	provider.name = req.body.name;
-	//	provider.createdBy = req.body.createdBy;
-	//	provider.createdAt = req.body.createdAt;
-	//	provider.updatedBy = req.body.updateBy;
-	//	provider.updatedAt = req.body.updatedAt;
-	//};
+ 
  provider.projectedStartDate = req.body.projectedStartDate;
  provider.employerId = req.body.employerId;
  provider.providerType = req.body.providerType;
@@ -113,6 +101,3 @@ exports.delete = function(req, res) {
 		});
 	});
 };
-
-
-

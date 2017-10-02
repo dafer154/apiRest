@@ -5,8 +5,6 @@ var methodOverride = require("method-override");
 var app = express();
 
 // Connection to DB
-
-
 mongoose.connect(`mongodb://davidz:davidz@ds157624.mlab.com:57624/evercheck-test-dz`, function(err, res){
 	if(err) {
 		return console.log(`Error by Connected to DB: ${err}`)
@@ -16,8 +14,8 @@ mongoose.connect(`mongodb://davidz:davidz@ds157624.mlab.com:57624/evercheck-test
 
 
 // Middlewares
-app.use(bodyParser.urlencoded({ extended: false })); 
-app.use(bodyParser.json()); 
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 app.use(methodOverride());
 
 // Import Models and Controllers
@@ -27,7 +25,7 @@ var ProviderCtrl = require('./controllers/provider');
 var router = express.Router();
 
 // Index - Route
-router.get('/', function(req, res) { 
+router.get('/', function(req, res) {
 	res.send("API Restful Node.js + MongoDB + Express.js");
 });
 
@@ -36,7 +34,7 @@ app.use(router);
 // API routes
 var api = express.Router();
 
-api.route('/providers') 
+api.route('/providers')
 .get(ProviderCtrl.findAll)
 .post(ProviderCtrl.add);
 
@@ -45,8 +43,6 @@ api.route('/providers/:id')
 .get(ProviderCtrl.findById)
 .put(ProviderCtrl.update)
 .delete(ProviderCtrl.delete);
-
-
 
 
  app.use('/api', api);
